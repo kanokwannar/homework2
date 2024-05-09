@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Question&Answer</title>
+    <title>Easy Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="question-container">
-        <h2>1. PIM ย่อมาจากอะไร?</h2>
-        <div class="answer">
-            <button onclick="checkAnswer(1, 'pim')" class="answer">พีไอเอ็ม</button>
-            <button onclick="checkAnswer(1, '')" class="wrong">ปิ๋ม</button>
-            <button onclick="checkAnswer(1, '')" class="wrong">พิม</button>
-            <button onclick="checkAnswer(1, '')" class="wrong">ภีม</button>
+    <div class="container">
+        <div class="question-container">
+            <h2>1. PIM ย่อมาจากอะไร?</h2>
+            <div class="answer">
+                <button onclick="checkAnswer(0, 0)">พีไอเอ็ม</button>
+                <button onclick="checkAnswer(0, 1)">ปิ๋ม</button>
+                <button onclick="checkAnswer(0, 2)">พิม</button>
+                <button onclick="checkAnswer(0, 3)">ภีม</button>
+            </div>
+            <p id="question1-feedback"></p>
         </div>
-    </div>
-    <div class="question-container">
-        <h2>2. AI ย่อมาจากอะไร?</h2>
-        <div class="answer">
-            <button onclick="checkAnswer(2, '')" class="wrong">Automation Intelligence</button>
-            <button onclick="checkAnswer(2, 'AI')" class="answer">Artificial Intelligence</button>
-            <button onclick="checkAnswer(2, '')" class="wrong">Automation Information</button>
-            <button onclick="checkAnswer(2, '')" class="wrong">Artificial Information</button>
+        <div class="question-container">
+            <h2>2. AI ย่อมาจากอะไร?</h2>
+            <div class="answer">
+                <button onclick="checkAnswer(1, 0)">Automation Intelligence</button>
+                <button onclick="checkAnswer(1, 1)">Artificial Intelligence</button>
+                <button onclick="checkAnswer(1, 2)">Automation Information</button>
+                <button onclick="checkAnswer(1, 3)">Artificial Information</button>
+            </div>
+            <p id="question2-feedback"></p>
         </div>
-    </div>
 
-    <div id="score-container">
-        <h2>คะแนนรวม: <span id="total-score">0</span></h2>
+        <div id="score-container">
+            <h2>คะแนนรวม: <span id="total-score">0</span></h2>
+        </div>
+        <button id="refresh-button" onclick="refreshPage()">ทำข้อสอบใหม่</button>
     </div>
-    <button id="refresh-button" onclick="refreshPage()" style="display: none;">ทำข้อสอบใหม่</button>
     <script src="index.js"></script>
 </body>
 </html>

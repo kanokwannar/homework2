@@ -1,40 +1,39 @@
 let totalScore = 0;
-let question1Answered = false;
-let question2Answered = false;
-
-function checkAnswer(questionNum, selectedAnswer) {
-    if (questionNum === 1 && !question1Answered) {
-        evaluateAnswer(questionNum, selectedAnswer, 'pim');
-        question1Answered = true; // ทำเครื่องหมายว่าคำถาม 1 ได้รับการตอบแล้ว
-    } else if (questionNum === 2 && !question2Answered) {
-        evaluateAnswer(questionNum, selectedAnswer, 'AI');
-        question2Answered = true; // ทำเครื่องหมายว่าคำถาม 2 ได้รับการตอบแล้ว
-    } 
-}
-
-function evaluateAnswer(questionNum, selectedAnswer, correctAnswer) {
-    let questionAnswered;
-
-    if (questionNum === 1) {
-        questionAnswered = question1Answered; // ตรวจสอบว่ามีการตอบคำถาม 1 แล้วหรือไม่
-    } else if (questionNum === 2) {
-        questionAnswered = question2Answered; // ตรวจสอบว่ามีการตอบคำถาม 2 แล้วหรือไม่
+let questions = [
+    {
+        question: "PIM ย่อมาจากอะไร?",
+        answers: ["พีไอเอ็ม", "ปิ๋ม", "พิม", "ภีม"],
+        correctAnswer: 0,
+        answeredCorrectly: false
+    },
+    {
+        question: "AI ย่อมาจากอะไร?",
+        answers: ["Automation Intelligence", "Artificial Intelligence", "Automation Information", "Artificial Information"],
+        correctAnswer: 1,
+        answeredCorrectly: false
     }
+];
 
-    if (!questionAnswered) {
-        const buttonClass = selectedAnswer === correctAnswer ? 'answer' : 'wrong';
-        document.querySelector('.' + buttonClass + questionNum).classList.add('selected');
-        
-        if (selectedAnswer === correctAnswer) {
-            totalScore += 1;
+function checkAnswer(questionIndex, answerIndex) {
+    const question = questions[questionIndex];
+    const feedbackElement = document.getElementById(`question${questionIndex + 1}-feedback`);
+
+    if (!question.answeredCorrectly) {
+        const correctAnswerIndex = question.correctAnswer;
+        if (answerIndex === correctAnswerIndex) {
+            totalScore++;
+            question.answeredCorrectly = true;
+            feedbackElement.textContent = "Correct!";
+            feedbackElement.classList.remove("incorrect");
+            feedbackElement.classList.add("correct");
         } else {
-            totalScore = Math.max(0, totalScore - 1);
+            feedbackElement.textContent = "Incorrect! Try again.";
+            feedbackElement.classList.remove("correct");
+            feedbackElement.classList.add("incorrect");
         }
-        
         updateScore();
     }
 }
-
 
 function updateScore() {
     const scoreElement = document.getElementById('total-score');
@@ -43,7 +42,12 @@ function updateScore() {
 
 function refreshPage() {
     totalScore = 0;
-    question1Answered = false; // รีเซ็ตสถานะการตอบคำถาม 1
-    question2Answered = false; // รีเซ็ตสถานะการตอบคำถาม 2
+    questions.forEach(question => {
+        question.answeredCorrectly = false;
+    });
+
+    document.getElementById("question1-feedback").textContent = "";
+    document.getElementById("question2-feedback").textContent = "";
+
     updateScore();
 }
