@@ -10,19 +10,19 @@
     <div class="question-container">
         <h2>1. PIM ย่อมาจากอะไร?</h2>
         <div class="answer">
-            <button onclick="checkAnswer(1, 'pim')">พีไอเอ็ม</button>
-            <button onclick="checkAnswer(1, '')">ปิ๋ม</button>
-            <button onclick="checkAnswer(1, '')">พิม</button>
-            <button onclick="checkAnswer(1, '')">ภีม</button>
+            <button onclick="checkAnswer(1, 'pim')" class="answer">พีไอเอ็ม</button>
+            <button onclick="checkAnswer(1, '')" class="wrong">ปิ๋ม</button>
+            <button onclick="checkAnswer(1, '')" class="wrong">พิม</button>
+            <button onclick="checkAnswer(1, '')" class="wrong">ภีม</button>
         </div>
     </div>
     <div class="question-container">
         <h2>2. AI ย่อมาจากอะไร?</h2>
         <div class="answer">
-            <button onclick="checkAnswer(2, '')">Automation Intelligence</button>
-            <button onclick="checkAnswer(2, 'AI')">Artificial Intelligence</button>
-            <button onclick="checkAnswer(2, '')">Automation Information</button>
-            <button onclick="checkAnswer(2, '')">Artificial Information</button>
+            <button onclick="checkAnswer(2, '')" class="wrong">Automation Intelligence</button>
+            <button onclick="checkAnswer(2, 'AI')" class="answer">Artificial Intelligence</button>
+            <button onclick="checkAnswer(2, '')" class="wrong">Automation Information</button>
+            <button onclick="checkAnswer(2, '')" class="wrong">Artificial Information</button>
         </div>
     </div>
 
@@ -30,7 +30,6 @@
         <h2>คะแนนรวม: <span id="total-score">0</span></h2>
     </div>
     <button id="refresh-button" onclick="refreshPage()" style="display: none;">ทำข้อสอบใหม่</button>
-
     <script src="index.js"></script>
 </body>
 </html>
