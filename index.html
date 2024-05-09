@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question&Answer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="question-container">
+        <h2>1. PIM ย่อมาจากอะไร?</h2>
+        <div class="answer">
+            <button onclick="checkAnswer(1, 'pim')">พีไอเอ็ม</button>
+            <button onclick="checkAnswer(1, '')">ปิ๋ม</button>
+            <button onclick="checkAnswer(1, '')">พิม</button>
+            <button onclick="checkAnswer(1, '')">ภีม</button>
+        </div>
+    </div>
+    <div class="question-container">
+        <h2>2. AI ย่อมาจากอะไร?</h2>
+        <div class="answer">
+            <button onclick="checkAnswer(2, '')">Automation Intelligence</button>
+            <button onclick="checkAnswer(2, 'AI')">Artificial Intelligence</button>
+            <button onclick="checkAnswer(2, '')">Automation Information</button>
+            <button onclick="checkAnswer(2, '')">Artificial Information</button>
+        </div>
+    </div>
+
+    <div id="score-container">
+        <h2>คะแนนรวม: <span id="total-score">0</span></h2>
+    </div>
+    <button id="refresh-button" onclick="refreshPage()" style="display: none;">ทำข้อสอบใหม่</button>
+
+    <script src="index.js"></script>
+</body>
+</html>
